@@ -24,5 +24,10 @@ def connect():
 
 def main ():
     connect()
-main()
-    
+
+try:
+    main()
+except KeyboardInterrupt:
+    print ''
+    print '[+]Exiting....'
+    SystemExit()
