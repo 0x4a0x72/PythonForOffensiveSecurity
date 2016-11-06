@@ -10,7 +10,7 @@ def connect():
     while True:
         command = s.recv(1024)
 
-        if 'terminate' in command
+        if 'terminate' in command:
             s.close() #close socket
             break
 
