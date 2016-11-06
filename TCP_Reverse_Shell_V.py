@@ -22,4 +22,13 @@ def connect():
 
 def main():
     connect()
-main()
+
+try:
+    main()
+except socket.error:
+    print '[+] No server is listening....'
+    SystemExit()
+except KeyboardInterrupt:
+    print ''
+    print '[+]Exiting....'
+    SystemExit()
