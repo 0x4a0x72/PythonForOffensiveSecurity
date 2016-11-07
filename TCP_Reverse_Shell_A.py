@@ -29,5 +29,8 @@ try:
     main()
 except KeyboardInterrupt:
     print ''
-    print '[+]Exiting....'
+    print '[-] Exiting.... '
+    SystemExit()
+except socket.error:
+    print '[-] Port 9091 already in use....'
     SystemExit()
