@@ -7,10 +7,11 @@ def transfer(s,path):
         f = open(path, 'rb')
         packet = f.read(1024)
         while packet != '':
-            s,send(packet)
+            s.send(packet)
             packet = f.read(1024)
         s.send('DONE')
         f.close()
+
     else:
         s.send('Unable to find out the file')
 
@@ -29,7 +30,7 @@ def connect():
 
             try:
                 transfer(s,path)
-            except Exception, e:
+            except Exception,e:
                 s.send ( str(e) )
                 pass
         else:
@@ -39,7 +40,6 @@ def connect():
 
 def main():
     connect()
-
 try:
     main()
 except socket.error:

